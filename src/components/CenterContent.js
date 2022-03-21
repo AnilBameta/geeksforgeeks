@@ -4,10 +4,14 @@ import CreateIcon from '@mui/icons-material/Create';
 import ThumbUpOffAltOutlinedIcon from '@mui/icons-material/ThumbUpOffAltOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 
+
+
 const Container = styled.div`
 margin-top:20px;
 text-align: start;
 flex:2;
+position:relative;
+
 `;
 
 const HeadingIcons = styled.div`

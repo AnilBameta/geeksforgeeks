@@ -13,6 +13,9 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import GeeksforGeeks from '../images/geeksforgeeks.png';
+import ReorderOutlinedIcon from '@mui/icons-material/ReorderOutlined';
+import {mobile, tablet, laptop,desktop,tv} from '../responsive';
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -56,12 +59,15 @@ const StyledMenu = styled((props) => (
 }));
 
 const Container = style.div`
-
-`;
-
+position: -webkit-sticky;
+  position: sticky;
+  top:0px;
+  background-color:white;
+  z-index:1;
+`
 const Wrapper = style.div`
 height:80px;
-width: 90%;
+width: 95%;
 margin-left: auto;
 margin-right: auto;
 display:flex;
@@ -69,9 +75,20 @@ align-items:center;
 `;
 
 const Left = style.div`
-flex:1;
+flex:1.3;
 justify-content: left;
+
+${laptop({display: 'none'})};
+${mobile({display: 'none'})};
+${tablet({display: 'none'})};
+
 `;
+
+const ThreeLine =style.div`
+${desktop({display: 'none'})};
+${tv({display: 'none'})};
+
+`
 
 const Button1 = style(Button)`
 color:black !important;
@@ -101,15 +118,22 @@ display:flex;
 gap:10px;
 justify-content: center;
 align-items:center;
+
+${tablet({justifyContent:'end'})};
+${laptop({justifyContent:'end'})};
 `;
 
 const Logo = style.img`
 width:30px;
 height:30px;
+
+
 `;
 
 const LogoName = style.h1`
 
+${mobile({display:'none'})};
+${tablet({display:'none'})};
 `;
 
 const Right = style.div`
@@ -118,15 +142,22 @@ display:flex;
 justify-content:right;
 gap:20px;
 align-items:center;
+
+${mobile({justifyContent:'left', gap:'10px'})};
+${tablet({justifyContent:'right', gap:'10px'})};
 `;
 
 const RightBtn = style(Button)`
 background-color: black !important;
 color:white !important;
+
+
 &:hover
 {
   background-color:green !important;
 }
+
+${mobile({display:'none'})};
 `;
 const TopHeader = () => {
 
@@ -143,6 +174,55 @@ const TopHeader = () => {
   return (
     <Container>
          <Wrapper>
+         <ThreeLine>
+           
+           
+         <Button2
+        id="demo-customized-button"
+        aria-controls={open ? 'demo-customized-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        variant="contained"
+        disableElevation
+        onClick={handleClick}
+        endIcon={<KeyboardArrowDownIcon />}
+         
+      >
+       <ReorderOutlinedIcon></ReorderOutlinedIcon>
+      </Button2>
+      <StyledMenu
+        id="demo-customized-menu"
+        MenuListProps={{
+          'aria-labelledby': 'demo-customized-button',
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose} disableRipple>
+          <EditIcon />
+          Jobs
+        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+          <FileCopyIcon />
+          Tutorials
+        </MenuItem>
+        <Divider sx={{ my: 0.5 }} />
+        <MenuItem onClick={handleClose} disableRipple>
+          <ArchiveIcon />
+          Events
+        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+          <MoreHorizIcon />
+          Courses
+        </MenuItem>
+      </StyledMenu>
+
+
+           
+           
+           
+           </ThreeLine>
              <Left>
              <Button2
         id="demo-customized-button"
@@ -229,7 +309,7 @@ const TopHeader = () => {
              <Button1>Courses</Button1>
              </Left>
              <Center>
-             <Logo src=''></Logo>
+             <Logo src={GeeksforGeeks}></Logo>
              <LogoName>GeeksforGeeks</LogoName>
              </Center>
              <Right>
