@@ -1,16 +1,16 @@
-import './App.css';
-import Content from './components/Content';
-import Footer from './components/Footer';
-import ResponsiveAppBar from './components/ResponsiveAppBar';
-import TopHeader from './components/TopHeader';
-
+import "./App.css";
+import HomePage from "./pages/HomePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignIn from "./pages/SignIn";
 function App() {
   return (
     <div>
-      <TopHeader />
-      <ResponsiveAppBar />
-      <Content />
-      <Footer />
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route path="/signin" element ={<SignIn />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
