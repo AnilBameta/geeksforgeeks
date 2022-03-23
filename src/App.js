@@ -1,5 +1,5 @@
 import "./App.css";
-import HomePage from "./pages/HomePage";
+import HomeContainer from "./containers/HomeContainer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/" element={<HomeContainer />} />
           <Route path="/signin" element ={<SignIn />} />
         </Routes>
       </Router>

@@ -72,7 +72,8 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-const TopHeader = () => {
+const TopHeader = (props) => {
+  console.log('topHeader',props)
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -81,6 +82,10 @@ const TopHeader = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const sendData = () => {
+    props.reduxData("Anil")
+  }
 
   return (
     <Container>
@@ -218,7 +223,7 @@ const TopHeader = () => {
           <SearchIcon></SearchIcon>
           <AppsIcon></AppsIcon>
           <GTranslateIcon></GTranslateIcon>
-         <Link to={`/signin`}><RightBtn>Sign In</RightBtn></Link> 
+         <Link to={`/signin`}><RightBtn onClick={sendData}>Sign In</RightBtn></Link> 
         </Right>
       </Wrapper>
     </Container>

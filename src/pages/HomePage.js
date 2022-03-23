@@ -3,10 +3,11 @@ import Content from '../components/homePage/Content';
 import Footer from '../components/homePage/Footer';
 import ResponsiveAppBar from '../components/homePage/ResponsiveAppBar';
 import TopHeader from '../components/homePage/TopHeader';
-const HomePage = () => {
+const HomePage = (props) => {
+  console.log(props)
   return (
     <div>
-      <TopHeader />
+      <TopHeader {...props}/>
       <ResponsiveAppBar />
       <Content />
       <Footer />
